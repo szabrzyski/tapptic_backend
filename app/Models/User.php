@@ -35,4 +35,12 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'likes', 'liked_user_id', 'liked_by_user_id', 'id', 'id')->withTimestamps();
     }
 
+    /**
+     * Get pairs.
+     */
+    public function pairs(): BelongsToMany
+    {
+        return $this->likedUsers()->whereRelation('likedUsers', 'liked_user_id', $this->id);
+    }
+
 }
