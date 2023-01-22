@@ -21,7 +21,9 @@ class UserController extends Controller
             $otherUser->likedByUsers()->attach($loggedUser->id);
 
             if ($otherUser->likedByUser($loggedUser)) {
-                return response()->json('User received your like.', 200);
+                $pairMessage = $loggedUser->likedByUser($otherUser) ? ' You both like each other!' : '';
+
+                return response()->json('User received your like.'.$pairMessage, 200);
             } else {
                 return response()->json('Something went wrong.', 500);
             }
