@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Like the user
-Route::post('/user/{userToLike}/like', [UserController::class, 'likeUser'])->name('likeUser');
+Route::post('/user/{otherUser}/like', [UserController::class, 'likeUser'])->name('likeUser');
 
 // Dislike the user
-Route::post('/user/{userToDislike}/dislike', [UserController::class, 'dislikeUser'])->name('dislikeUser');
+Route::post('/user/{otherUser}/dislike', [UserController::class, 'dislikeUser'])->name('dislikeUser');
