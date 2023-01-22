@@ -7,7 +7,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-
     /**
      * Like the user.
      */
@@ -37,7 +36,7 @@ class UserController extends Controller
         $loggedUser = User::where('id', $request->logged_user_id)->firstOrFail();
         $isAlreadyLiked = $otherUser->likedByUser($loggedUser);
 
-        if (!$isAlreadyLiked) {
+        if (! $isAlreadyLiked) {
             return response()->json('You have not liked this user yet.', 400);
         } else {
             $usersDisliked = $otherUser->likedByUsers()->detach($loggedUser->id);
@@ -49,5 +48,4 @@ class UserController extends Controller
             }
         }
     }
-
 }

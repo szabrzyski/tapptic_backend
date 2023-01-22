@@ -21,7 +21,6 @@ class UserInteractionRequest extends FormRequest
 
     /**
      * Validation rules.
-     *
      */
     public function rules(): array
     {
@@ -32,5 +31,4 @@ class UserInteractionRequest extends FormRequest
             })],
         ];
     }
-
 }

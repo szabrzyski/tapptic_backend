@@ -50,5 +50,4 @@ class User extends Authenticatable
     {
         return $this->likedByUsers()->wherePivot('liked_by_user_id', $user->id)->exists();
     }
-
 }
