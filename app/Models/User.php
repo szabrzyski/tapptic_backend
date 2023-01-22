@@ -43,4 +43,12 @@ class User extends Authenticatable
         return $this->likedUsers()->whereRelation('likedUsers', 'liked_user_id', $this->id);
     }
 
+    /**
+     * Check if the user is liked by other user.
+     */
+    public function likedByUser(User $user): bool
+    {
+        return $this->likedByUsers()->wherePivot('liked_by_user_id', $user->id)->exists();
+    }
+
 }

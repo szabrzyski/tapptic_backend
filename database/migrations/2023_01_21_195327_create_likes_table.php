@@ -22,6 +22,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->foreign('liked_user_id')->references('id')->on('users')->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            $table->unique(['liked_by_user_id', 'liked_user_id']);
         });
     }
 
