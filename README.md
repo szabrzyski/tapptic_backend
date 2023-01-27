@@ -1,1 +1,1 @@
-Simple form component interacting with a fake API, made in Vue 3 as a coding assignment.
+Simple API for the user likes system, made in Laravel 9 as a coding assignment.
